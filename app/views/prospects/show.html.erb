@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Zipcode:</strong>
+  <%= @prospect.zipcode %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @prospect.gender %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @prospect.age %>
+</p>
+
+<p>
+  <strong>Tobacco:</strong>
+  <%= @prospect.tobacco %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @prospect.height %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @prospect.weight %>
+</p>
+
+<p>
+  <strong>Disease:</strong>
+  <%= @prospect.disease %>
+</p>
+
+<p>
+  <strong>Familydisease:</strong>
+  <%= @prospect.familydisease %>
+</p>
+
+<%= link_to 'Edit', edit_prospect_path(@prospect) %> |
+<%= link_to 'Back', prospects_path %>

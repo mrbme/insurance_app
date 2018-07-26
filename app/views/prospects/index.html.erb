@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Prospects</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Zipcode</th>
+      <th>Gender</th>
+      <th>Age</th>
+      <th>Tobacco</th>
+      <th>Height</th>
+      <th>Weight</th>
+      <th>Disease</th>
+      <th>Familydisease</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @prospects.each do |prospect| %>
+      <tr>
+        <td><%= prospect.zipcode %></td>
+        <td><%= prospect.gender %></td>
+        <td><%= prospect.age %></td>
+        <td><%= prospect.tobacco %></td>
+        <td><%= prospect.height %></td>
+        <td><%= prospect.weight %></td>
+        <td><%= prospect.disease %></td>
+        <td><%= prospect.familydisease %></td>
+        <td><%= link_to 'Show', prospect %></td>
+        <td><%= link_to 'Edit', edit_prospect_path(prospect) %></td>
+        <td><%= link_to 'Destroy', prospect, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Prospect', new_prospect_path %>

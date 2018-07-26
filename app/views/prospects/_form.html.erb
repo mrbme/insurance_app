@@ -1,0 +1,57 @@
+<%= form_with(model: prospect, local: true) do |form| %>
+  <% if prospect.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(prospect.errors.count, "error") %> prohibited this prospect from being saved:</h2>
+
+      <ul>
+      <% prospect.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :zipcode %>
+    <%= form.text_field :zipcode %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gender %>
+    <%= form.text_field :gender %>
+  </div>
+
+  <div class="field">
+    <%= form.label :age %>
+    <%= form.text_field :age %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tobacco %>
+    <%= form.text_field :tobacco %>
+  </div>
+
+  <div class="field">
+    <%= form.label :height %>
+    <%= form.text_field :height %>
+  </div>
+
+  <div class="field">
+    <%= form.label :weight %>
+    <%= form.text_field :weight %>
+  </div>
+
+  <div class="field">
+    <%= form.label :disease %>
+    <%= form.text_field :disease %>
+  </div>
+
+  <div class="field">
+    <%= form.label :familydisease %>
+    <%= form.text_field :familydisease %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
