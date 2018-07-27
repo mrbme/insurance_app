@@ -1,5 +1,5 @@
 <div class="container">
-  <form clas="zip-form">
+  <form class="zip_form">
   <div class="form-group row">
     <label for="zipcode" class="col-sm-2 col-form-label">Enter Zipcode</label>
     <div class="col-sm-10">
@@ -18,7 +18,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
   // Change the ID to whatever you give the form element
-  $('#zip_form').submit(function(e) {
+  $('.zip_form').submit(function(e) {
       e.preventDefault();
       // Get the zip from the form element, since it's the only input element.
       // Generally if you have more than one input, you can just use $(this).serialize()
