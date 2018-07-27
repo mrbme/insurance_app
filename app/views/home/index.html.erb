@@ -14,30 +14,3 @@
   </div>
 </form>
 </div> 
-
-<script type="text/javascript">
-$(document).ready(function() {
-  // Change the ID to whatever you give the form element
-  $('.zip_form').submit(function(e) {
-      e.preventDefault();
-      // Get the zip from the form element, since it's the only input element.
-      // Generally if you have more than one input, you can just use $(this).serialize()
-      // and assign it to a variable that you then send as the 'data' property in the 
-      // ensuing Ajax call.
-      let zip = $('#inputZipCode').val();
-      // Ajax call. Since we're just doing a GET request where the zip is built into 
-      // the request URL, there's no reason to add a 'data' property to the request object.
-      $.ajax({
-          method: 'get',
-          url: 'https://www.zipcodeapi.com/rest/KLurgxJ2JSHeRzVq1Cosopdz61X0fsmWJlCRso2C3iqO8xGFb8E1i0OsvcCF8QmM/info.json/' + zip + '/degrees',
-          contentType: 'json',
-          success: function(data, status, jqXHR) {
-              // All we're doing is assigning the value we want to local storage (basically
-              // the browser's cache) so we can retrieve it later.
-              window.sessionStorage.setItem('userCity', data.city);
-              window.location.href = '/page2.html';
-          }
-      });
-  });
-});
-</script>
