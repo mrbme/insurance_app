@@ -1,3 +1,13 @@
 <div class="class container">
 	<h1 class="text-center">You are from</h1>
 </div>
+
+<script type="text/javascript">
+	$(function() {
+    // Retrieve the city value from local storage
+    let city = window.sessionStorage.getItem('userCity');
+    if(city !== null || city !== '' || typeof city !== 'undefined') {
+        console.log(city);
+    }
+});
+</script>
