@@ -31,13 +31,13 @@ $(document).ready(function() {
       // the request URL, there's no reason to add a 'data' property to the request object.
       $.ajax({
           method: 'get',
-          url: 'https://www.zipcodeapi.com/rest/KLurgxJ2JSHeRzVq1Cosopdz61X0fsmWJlCRso2C3iqO8xGFb8E1i0OsvcCF8QmM/info.json/' + zipval + '/degrees',
+          url: 'http://api.zippopotam.us/us/' + zipval,
           dataType: 'json',
           success: function(data, status, jqXHR) {
               // All we're doing is assigning the value we want to local storage (basically
               // the browser's cache) so we can retrieve it later.
               console.log(data);
-              window.sessionStorage.setItem('userCity', data.city);
+              window.sessionStorage.setItem('userCity', data.places["0"]["place name"]);
               window.location.href = '/page2.html';
           }
       });
@@ -45,17 +45,40 @@ $(document).ready(function() {
 });
 </script>
 
-<!-- <script type="text/javascript">
-$(document).ready(function() {
-  // Change the ID to whatever you give the form element
-  $('.zip_form').submit(function(e) {
-      e.preventDefault();
-      let zipcode = document.getElementById('inputZipcode');
-      let zipval = zipcode.value;
-      console.log(zipval);
-  });
+<script type="text/javascript">
+  $(document).ready(function() { 
+    $(function() {
+    // Retrieve the city value from local storage
+    let city = window.sessionStorage.getItem('userCity');
+    if(city !== null || city !== '' || typeof city !== 'undefined') {
+      console.log(city);
+        var x = document.getElementById('zipcode');
+        x.innerHTML += city;
+    }
 });
-</script> -->
+    console.log("error");
+  });
+</script>
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
 
 
   </body>
